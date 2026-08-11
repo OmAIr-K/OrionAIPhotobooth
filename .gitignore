@@ -140,3 +140,31 @@ dmypy.json
 .pyre/
 
 .idea/
+
+# Orion AI Photobooth — secrets & local runtime
+**/credentials.json
+!.gitkeep
+AIPhotobooth/outputs/
+AIPhotobooth/public/outputs/
+outputs/
+node_modules/
+AIPhotobooth/node_modules/
+
+# Large model weights (download separately; see README)
+models/**/*.safetensors
+models/**/*.bin
+models/**/*.onnx
+models/**/*.pt
+models/**/*.pth
+models/antelopev2/
+models/.cache/
+
+# Local tooling / junk (do not publish)
+.blackboxrules
+apex/
+run_inference - Copy.py
+run_inference(old).py
+AIPhotobooth/.vscode/
+*.lock
+!package-lock.json
+!AIPhotobooth/package-lock.json

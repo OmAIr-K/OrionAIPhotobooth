@@ -1,0 +1,122 @@
+/* Custom Styles for AI Photobooth App */
+
+/* Custom gradient background for the custom style card */
+.custom-gradient-bg {
+  background: linear-gradient(135deg, 
+    rgba(93, 63, 211, 0.85) 0%, 
+    rgba(124, 58, 237, 0.75) 50%,
+    rgba(139, 92, 246, 0.85) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sparkle animation for custom style card */
+.custom-sparkle-animation {
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.8) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px);
+  background-size: 40px 40px, 30px 30px, 50px 50px;
+  background-position: 0 0, 15px 15px, 25px 10px;
+  animation: sparkleAnimation 8s linear infinite;
+}
+
+@keyframes sparkleAnimation {
+  0% {
+    background-position: 0 0, 15px 15px, 25px 10px;
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    background-position: 20px 20px, 35px 35px, 45px 30px;
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    background-position: 40px 40px, 55px 55px, 65px 50px;
+    opacity: 0.1;
+  }
+}
+
+/* Shadow effect for selected custom style */
+.ring-purple-500.custom-gradient-bg,
+.ring-purple-500 .custom-gradient-bg {
+  box-shadow: 0 0 15px 2px rgba(139, 92, 246, 0.7);
+}
+
+/* Pulsing effect for the icons */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.custom-style-icon {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Floating effect for the icon circle */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-circle {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Subtle color shift for the button */
+@keyframes buttonColorShift {
+  0% {
+    background-color: rgba(139, 92, 246, 0.8);
+  }
+  50% {
+    background-color: rgba(124, 58, 237, 0.8);
+  }
+  100% {
+    background-color: rgba(139, 92, 246, 0.8);
+  }
+}
+
+.custom-button {
+  transition: all 0.3s ease;
+  animation: buttonColorShift 3s infinite;
+}
+
+.custom-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a subtle pattern overlay */
+.pattern-overlay {
+  background-image: 
+    linear-gradient(135deg, rgba(139, 92, 246, 0.1) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(139, 92, 246, 0.1) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(139, 92, 246, 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(139, 92, 246, 0.1) 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 0, 10px -10px, 0 10px;
+  opacity: 0.4;
+} 

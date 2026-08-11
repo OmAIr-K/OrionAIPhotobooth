@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["src/components/*"],
+      "data/*": ["src/data/*"],
+      "styles/*": ["src/styles/*"],
+      "assets/*": ["src/assets/*"]
+    },
+    "lib": ["DOM", "ES2015"]
+  }
+} 

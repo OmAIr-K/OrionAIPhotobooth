@@ -1,0 +1,9 @@
+# Extra dependencies for Orion AI Photobooth (proxy + Google Drive)
+# Install after requirements.txt:
+#   pip install -r requirements.txt
+#   pip install -r requirements_photobooth.txt
+
+flask>=2.3.0
+flask-cors>=4.0.0
+google-api-python-client>=2.100.0
+google-auth>=2.23.0
