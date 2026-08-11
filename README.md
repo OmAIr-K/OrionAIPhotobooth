@@ -2,6 +2,8 @@
 
 **Orion AI Photobooth** is an interactive, event-ready image generation application. A guest captures or uploads a portrait, picks a transformation style (or a custom text prompt), and the system generates a stylized likeness while preserving identity.
 
+![Orion AI Photobooth frontend](docs/assets/orion-photobooth-frontend.png)
+
 The experience was built for campus events at **Manipal Academy of Higher Education – Dubai Campus** (Technovanza), and combines:
 
 - A React frontend (`AIPhotobooth/`) for the guest journey and UI
