@@ -198,6 +198,15 @@ cd ..
 
 See the dedicated section below, then continue to [Configuration checklist](#configuration-checklist).
 
+### 6. Pre-flight checklist (before first run)
+
+- [ ] `AIPhotobooth/credentials.json` exists (copied from the example + your GCP key)
+- [ ] Model weights available under `models/` (or first-run Hugging Face download will work)
+- [ ] GPU drivers / CUDA available for PyTorch
+- [ ] `inputs/` folder exists for guest photos
+- [ ] Three processes will be started in order: inference → proxy → frontend
+- [ ] When saving a capture, choose `<repo>/inputs/` so the backend can find it
+
 ---
 
 ## Google Drive credentials
@@ -295,7 +304,9 @@ Ensure this folder exists (created automatically on first generation if missing)
 
 - Backend: `localhost:9999`
 - Listen: `localhost:9998`
-- Static outputs: `../outputs` (adjust if you serve files through the proxy)
+- Serves files from `AIPhotobooth/outputs/` (same folder `run_inference.py` writes to)
+
+These `localhost` bindings are intentional for a local kiosk setup. Do not expose them publicly without authentication.
 
 ### 4. Frontend backend URL
 
@@ -447,8 +458,10 @@ The `style` id sent from the UI **must** exist as a key in `run_inference.py`’
 When adding a new style:
 
 1. Add the prompt key to `STYLE_PROMPTS` in `run_inference.py`
-2. Add a matching card in `stylesData.js`
-3. Keep ids identical across frontend and backend
+2. Add the **same** `id` to `stylesData.js` (and optionally mirror in `websocketService.js` / `trigger_gen.py`)
+3. Keep ids identical across frontend and backend — mismatched ids return `Unknown style key`
+
+Shipped UI styles (`iron_man`, `superman`, `cyberpunk_hacker`, `lightning_hero`, etc.) are aligned with the backend prompt map.
 
 Default generation knobs in `run_inference.py` (edit as needed):
 
@@ -473,7 +486,8 @@ Default generation knobs in `run_inference.py` (edit as needed):
 | Camera permission errors | Browser blocked camera | Allow camera access, or use **Upload** mode |
 | Results image blank | Path / Drive ACL | Confirm file exists under outputs; ensure Drive file is public reader; check browser console |
 | Proxy timeout | Long generation | Default socket timeout is long (`1200`s); wait or check GPU utilization |
-| Hardcoded path errors | Old `F:\…\AI Photobooth\…` paths | Update paths to your clone (folder is now `AIPhotobooth`) |
+| `Unknown style key: superman` / similar | Style id mismatch (fixed for shipped styles) | Keep UI `id` values identical to keys in `run_inference.py` → `STYLE_PROMPTS` |
+| Results blank locally, Drive OK | Local `/outputs/` not reachable from CRA | Prefer Drive URL; or copy/symlink results into a folder served by the frontend |
 
 ---
 

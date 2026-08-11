@@ -4,6 +4,7 @@ import socket
 import json
 import logging
 import os
+from pathlib import Path
 from typing import Dict, Any, Tuple
 
 app = Flask(__name__)
@@ -21,7 +22,8 @@ BACKEND_HOST = 'localhost'
 BACKEND_PORT = 9999
 SOCKET_TIMEOUT = 1200  # 10 minutes timeout for long operations
 BUFFER_SIZE = 16384  # Increased buffer size
-OUTPUTS_DIR = '../outputs'  # Directory where generated images are stored
+_REPO_ROOT = Path(__file__).resolve().parent
+OUTPUTS_DIR = str(_REPO_ROOT / "AIPhotobooth" / "outputs")  # Must match run_inference.py output dir
 
 # Ensure the outputs directory exists
 os.makedirs(OUTPUTS_DIR, exist_ok=True)

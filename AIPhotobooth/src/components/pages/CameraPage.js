@@ -784,7 +784,7 @@ const CameraPage = ({ selectedGender, selectedStyle, onCapture, onBack }) => {
                       <div className="mt-6 bg-black/30 p-4 rounded-lg text-left">
                         <h4 className="text-white font-semibold mb-2 text-sm">Troubleshooting Tips:</h4>
                         <ul className="text-xs text-gray-400 space-y-1.5 list-disc pl-4">
-                          <li>Make sure your BCC950 camera is properly connected to USB</li>
+                          <li>Make sure your camera is properly connected (USB / built-in)</li>
                           <li>Check if your browser has camera permissions</li>
                           <li>Ensure no other applications are using the camera</li>
                           <li>Try restarting your computer if issues persist</li>

@@ -117,7 +117,6 @@ const ResultsPage = ({
       const alternateLocalPaths = [
         `/outputs/${fileName}`,
         `outputs/${fileName}`,
-        `/AI Photobooth/public/outputs/${fileName}`,
         `../outputs/${fileName}`
       ];
       

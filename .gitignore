@@ -165,6 +165,7 @@ apex/
 run_inference - Copy.py
 run_inference(old).py
 AIPhotobooth/.vscode/
-*.lock
-!package-lock.json
+package.json
+package-lock.json
+!AIPhotobooth/package.json
 !AIPhotobooth/package-lock.json
